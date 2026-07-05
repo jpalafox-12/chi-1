@@ -55,6 +55,9 @@ func PrintPrettyStack(rvr interface{}) {
 	printPrettyStack(rvr, true)
 }
 
+// printPrettyStack prints a formatted stack trace to stderr. When useColor is
+// false, ANSI colour codes are suppressed, which is useful for terminals that
+// do not support them (e.g. on Windows) or when output is being captured.
 func printPrettyStack(rvr interface{}, useColor bool) {
 	debugStack := debug.Stack()
 	s := prettyStack{}
